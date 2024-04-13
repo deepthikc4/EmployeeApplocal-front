@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 
 
 const Navbar = () => {
+  const releaseToken=()=>{
+    sessionStorage.removeItem('adminToken');
+  }
   return (
     <div>
 <Box sx={{ flexGrow: 1 }}>
@@ -13,8 +16,9 @@ const Navbar = () => {
             EMPLOYEE APP
           </Typography>
           <Button color="inherit" >
-            <Link to={'/'} style={{backgroundColor:'white',color:'blue', textDecoration:"none",padding:'10px'}}>HOME</Link></Button>
-          <Button color="inherit"><Link to={'/e'} style={{backgroundColor:'white',color:'blue', textDecoration:"none",padding:'10px'}}>Employee Form</Link></Button>
+            <Link to={'/home'} style={{backgroundColor:'white',color:'blue', textDecoration:"none",padding:'10px'}}>HOME</Link></Button>
+          <Button color="inherit"><Link to={'/form'} style={{backgroundColor:'white',color:'blue', textDecoration:"none",padding:'10px'}}>Employee Form</Link></Button>
+          <Button onClick={releaseToken} color="inherit"><Link to={'/'} style={{backgroundColor:'white',color:'blue', textDecoration:"none",padding:'10px'}}>Logout</Link></Button>
         </Toolbar>
       </AppBar>
     </Box>
